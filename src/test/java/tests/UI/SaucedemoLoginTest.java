@@ -9,7 +9,10 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;//
 import page_object.LoginPage;
+
+import java.io.File;//
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -35,6 +38,10 @@ public class SaucedemoLoginTest { private static WebDriver driver;
 
     @BeforeEach
     public void setUpEach() {
+        ChromeOptions options = new ChromeOptions();//
+        options.addExtensions(new File("src/test/resources/User-Agent-Switcher-for-Chrome-Chrome.crx"));//
+        options.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);//
+        options.addArguments("--headless");//
         driver.get(URL);
     }
 

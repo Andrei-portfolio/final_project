@@ -15,11 +15,13 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;//
 import page_object.CartPage;
 import page_object.CheckoutPage;
 import page_object.HomePage;
 import page_object.LoginPage;
 
+import java.io.File;//
 import java.time.Duration;
 import java.util.stream.Stream;
 
@@ -44,6 +46,10 @@ public class CheckoutTest {
     @BeforeAll
     public static void setUp() {
         System.setProperty("webdriver.chrome.driver", "drivers\\yandexdriver.exe");
+        ChromeOptions options = new ChromeOptions();//
+        options.addExtensions(new File("src/test/resources/User-Agent-Switcher-for-Chrome-Chrome.crx"));//
+        options.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);//
+        options.addArguments("--headless");//
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
@@ -94,6 +100,4 @@ public class CheckoutTest {
             driver.quit();
         }
     }
-
 }
-
