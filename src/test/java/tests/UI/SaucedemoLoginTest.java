@@ -38,10 +38,10 @@ public class SaucedemoLoginTest { private static WebDriver driver;
 
     @BeforeEach
     public void setUpEach() {
-        ChromeOptions options = new ChromeOptions();//
-        options.addExtensions(new File("src/test/resources/User-Agent-Switcher-for-Chrome-Chrome.crx"));//
-        options.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);//
-        options.addArguments("--headless");//
+//        ChromeOptions options = new ChromeOptions();//
+//        options.addExtensions(new File("src/test/resources/User-Agent-Switcher-for-Chrome-Chrome.crx"));//
+//        options.setPageLoadStrategy(org.openqa.selenium.PageLoadStrategy.EAGER);//
+//        options.addArguments("--headless");//
         driver.get(URL);
     }
 
